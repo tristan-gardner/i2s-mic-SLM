@@ -1,0 +1,5 @@
+#record call
+
+gcc -lasound -lm alsa.c
+rm out.wav
+./a.out hw:CARD=sndrpisimplecar,DEV=0 | head -c 32000000 | sox -t raw -r 48000 -e signed -b 32 -c 2 - -t wav - > out.wav
